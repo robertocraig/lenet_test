@@ -29,7 +29,7 @@ def train_step(model, dataloader, loss_fn, optimizer, device):
 
 # Função para o loop de validação
 def test_step(model, dataloader, loss_fn, device):
-    model.eval()  # Configura o modelo para modo de avaliação
+    model.eval()  # Configura o modelo para modo de avaliação    
     test_loss, correct = 0, 0
 
     with torch.no_grad():
@@ -40,7 +40,7 @@ def test_step(model, dataloader, loss_fn, device):
             y_pred = model(X)
             test_loss += loss_fn(y_pred, y).item()
             
-            # Calcula a acurácia
+            # Calcula a acurácia            
             _, preds = torch.max(y_pred, 1)
             correct += (preds == y).sum().item()
 
